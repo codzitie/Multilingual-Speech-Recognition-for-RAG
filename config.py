@@ -10,7 +10,7 @@ from groq import Groq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "your api key"
 MODEL_PATH = "sentence-transformers/all-MiniLM-l6-v2"
 
 client = Groq(api_key=GROQ_API_KEY)
