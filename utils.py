@@ -41,3 +41,15 @@ def transcribe_and_rag(content_pdf_path, question_path):
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="refine", retriever=retriever, return_source_documents=False)
     result = qa.run({"query": question})
     return result
+
+def rag(content_pdf_path,question):
+    print('content pdf',content_pdf_path)
+    loader = PDFMinerLoader(content_pdf_path)
+    data = loader.load()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
+    docs = text_splitter.split_documents(data)
+    db = FAISS.from_documents(docs, embeddings)
+    retriever = db.as_retriever()
+    qa = RetrievalQA.from_chain_type(llm=llm, chain_type="refine", retriever=retriever, return_source_documents=False)
+    result = qa.run({"query": question})
+    return result

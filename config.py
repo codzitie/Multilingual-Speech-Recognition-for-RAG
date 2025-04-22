@@ -9,6 +9,8 @@ from langchain.chains import RetrievalQA
 from groq import Groq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
+
 
 GROQ_API_KEY = "your api key"
 MODEL_PATH = "sentence-transformers/all-MiniLM-l6-v2"
@@ -24,4 +26,5 @@ embeddings = HuggingFaceEmbeddings(
     encode_kwargs=encode_kwargs
 )
 
-llm = ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama3-70b-8192")
+# llm = ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama3-70b-8192")
+llm = ChatOllama(model="llama3.2")
