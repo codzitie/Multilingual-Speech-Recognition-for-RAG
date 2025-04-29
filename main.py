@@ -17,7 +17,8 @@ async def root():
 
 @app.post("/ask_text")
 async def ask_text(question_input: str = Form(...), pdf_file: UploadFile = File(...)):
-
+    # response = await process_text_question(question_input, pdf_file)
+    # print('resp',response)
     return await process_text_question(question_input, pdf_file)
 
 @app.post("/ask_audio")
