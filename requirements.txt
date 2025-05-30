@@ -7,3 +7,5 @@ sentence-transformers
 faiss-cpu
 pdfminer.six
 tf-keras
+google-generativeai
+langchain-google-genai
