@@ -15,7 +15,7 @@ async def root():
     with open("index.html") as f:
         return HTMLResponse(content=f.read())
 
-@app.post("/ask_text")
+@app.post("/ask_text"   )
 async def ask_text(question_input: str = Form(...), pdf_file: UploadFile = File(...)):
     # response = await process_text_question(question_input, pdf_file)
     # print('resp',response)
@@ -27,4 +27,4 @@ async def ask_audio(pdf_file: UploadFile = File(...), audio_file: UploadFile = F
     return await process_audio_question(pdf_file, audio_file)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
